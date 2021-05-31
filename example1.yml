@@ -7,7 +7,7 @@ resources:
       buildName: svc_build
       buildNumber: 1
       
-  - name: release_bundle
+  - name: myReleaseBundle
     type: ReleaseBundle
     configuration:
       sourceDistribution: myDist
