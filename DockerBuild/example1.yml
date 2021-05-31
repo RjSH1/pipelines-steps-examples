@@ -3,7 +3,7 @@ resources:
   - name: gosvc_app
     type: GitRepo
     configuration:
-      gitProvider: MyGithub
+      gitProvider: MyGithub                         # replace with your GitHub integration name
       path: RjSH1/pipelines_steps                   # replace with your repository name
       branches:
         include: master
@@ -12,7 +12,7 @@ resources:
   - name: base_image
     type: Image
     configuration:
-      registry: MyArtifactory
+      registry: MyArtifactory               # replace with your Artifactory integration name
       sourceRepository: docker-local        # replace with your repository name
       imageName: docker.artprod.mycompany.com/baseimage
       imageTag: latest
