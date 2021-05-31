@@ -19,7 +19,5 @@ pipelines:
           dockerFileName: Dockerfile
           dockerImageName: docker.artprod.mycompany.com/gosvc    # replace with your fully qualified Docker registry/image name
           dockerImageTag: ${run_number}
-          inputResources:
-            - name: gosvc_app
           integrations:
             - name: MyArtifactory
