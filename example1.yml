@@ -25,5 +25,5 @@ pipelines:
           dryRun: false
           inputResources:
             - name: myBuildInfo
-          outputResources:
-            - name: myReleaseBundle
+#          outputResources:
+#            - name: myReleaseBundle
