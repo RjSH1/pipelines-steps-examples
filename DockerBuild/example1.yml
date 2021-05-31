@@ -1,0 +1,25 @@
+resources:
+# Docker image in an Artifactory repository
+  - name: base_image
+    type: Image
+    configuration:
+      registry: MyArtifactory
+      sourceRepository: docker-local        # replace with your repository name
+      imageName: docker.artprod.mycompany.com/baseimage
+      imageTag: latest
+      autoPull: true
+
+pipelines:
+  - name: demo_pipeline
+    steps:
+      - name: bld_image
+        type: DockerBuild
+        configuration:
+          dockerFileLocation: .
+          dockerFileName: Dockerfile
+          dockerImageName: docker.artprod.mycompany.com/gosvc    # replace with your fully qualified Docker registry/image name
+          dockerImageTag: ${run_number}
+          inputResources:
+            - name: gosvc_app
+          integrations:
+            - name: MyArtifactory
