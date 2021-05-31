@@ -14,7 +14,7 @@ resources:
     configuration:
       registry: MyArtifactory               # replace with your Artifactory integration name
       sourceRepository: docker-local        # replace with your repository name
-      imageName: docker.artprod.mycompany.com/baseimage
+      imageName: https://icarus1a.jfrogdev.org/artifactory/docker-local/baseimage
       imageTag: latest
       autoPull: true
 
