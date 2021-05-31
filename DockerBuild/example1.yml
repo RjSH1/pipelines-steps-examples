@@ -1,4 +1,13 @@
 resources:
+# Application source repository
+  - name: gosvc_app
+    type: GitRepo
+    configuration:
+      gitProvider: MyGithub
+      path: RjSH1/pipelines_steps                   # replace with your repository name
+      branches:
+        include: master
+        
 # Docker image in an Artifactory repository
   - name: base_image
     type: Image
@@ -19,5 +28,7 @@ pipelines:
           dockerFileName: Dockerfile
           dockerImageName: docker.artprod.mycompany.com/gosvc    # replace with your fully qualified Docker registry/image name
           dockerImageTag: ${run_number}
+          inputResources:
+            - name: gosvc_app          
           integrations:
             - name: MyArtifactory
