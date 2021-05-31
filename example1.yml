@@ -6,6 +6,13 @@ resources:
       sourceArtifactory: MyArtifactory
       buildName: svc_build
       buildNumber: 1
+      
+  - name: release_bundle
+    type: ReleaseBundle
+    configuration:
+      sourceDistribution: myDist
+      name: demo_rb
+      version: v1.0.0
 
 pipelines:
   - name: createReleaseBundlePipeline
