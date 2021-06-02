@@ -1,5 +1,5 @@
 resources:
-  - name: myBuildInfo
+  - name: myBuildInfo1
     type: BuildInfo
     configuration:
       sourceArtifactory: myArt
@@ -23,6 +23,6 @@ pipelines:
           releaseBundleVersion: "${run_number}"
           dryRun: false
           inputResources:
-            - name: myBuildInfo
+            - name: myBuildInfo1
           outputResources:
             - name: myReleaseBundle
