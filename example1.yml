@@ -3,7 +3,7 @@ resources:
   - name: myBuildInfo
     type: BuildInfo
     configuration:
-      sourceArtifactory: MyArtifactory
+      sourceArtifactory: myArt
       buildName: svc_build
       buildNumber: 1
       
