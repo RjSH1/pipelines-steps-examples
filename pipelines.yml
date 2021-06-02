@@ -2,7 +2,7 @@ template: true   # required for local templates
 valuesFilePath: ./values.yml
 
 resources:
-  - name: app_repo
+  - name: app_repo1
     type: GitRepo
     configuration:
       gitProvider: {{ .Values.gitIntegration }}                      
@@ -10,7 +10,7 @@ resources:
       branches:
         include: master
 
-  - name: app_buildinfo
+  - name: app_buildinfo1
     type: BuildInfo
     configuration:
       sourceArtifactory: {{ .Values.artifactoryIntegration }}
