@@ -1,0 +1,51 @@
+resources:
+  - name: gitRepoResource
+    type: GitRepo
+    configuration:
+      gitProvider: MyGithub
+      path: RjSH1/jfrog-steps-examples
+      branches:
+        include: master
+
+  - name: gradle_app
+    type: FileSpec
+    configuration:
+      sourceArtifactory: Artifactory
+      pattern: jerome--gradle-dev-local/com/jfrog/jerome/**/*.jar
+      target: build/
+      sortBy: ['created']
+      limit: 1
+
+  - name: jerome_build_info_docker
+    type: BuildInfo
+    configuration:
+      sourceArtifactory:    Artifactory
+      buildName:            jerome-pipelines-docker
+      buildNumber:          ${run_number}
+  - name: jerome_build_info_promoted_docker
+    type: BuildInfo
+    configuration:
+      sourceArtifactory:    Artifactory
+      buildName:            jerome-pipelines-docker
+      buildNumber:          ${run_number}
+
+  - name: jerome_helm_chart
+    type: HelmChart
+    configuration:
+      sourceArtifactory: Artifactory
+#      repository: jerome-docker-prod-local
+      repository: docker-local
+      chart: pipelines-sample
+      version: 1.0.0
+
+pipelines:
+  - name: gradleBuildPipeline
+    steps:
+      - name: gradleBuildStep
+        type: GradleBuild
+        configuration:
+          gradleCommand: "build"
+          inputResources:
+            - name: gitRepoResource
+          integrations:
+            - name: artifactory_integration
