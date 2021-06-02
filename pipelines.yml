@@ -40,3 +40,12 @@ pipelines:
             - name: {{ .Values.artifactoryIntegration }}                            
           inputSteps:
             - name: app_build
+
+      - name: publish_app_build
+        type: PublishBuildInfo
+        configuration:
+          affinityGroup: docker_group
+          inputSteps:
+            - name: app_push
+          outputResources:
+            - name: app_buildinfo
