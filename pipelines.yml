@@ -15,7 +15,7 @@ resources:
     configuration:
       sourceArtifactory: {{ .Values.artifactoryIntegration }}
 
-  - name: app_promoted_buildinfo
+  - name: app_promoted_buildinfo1
     type: BuildInfo
     configuration:
       sourceArtifactory: {{ .Values.artifactoryIntegration }}
