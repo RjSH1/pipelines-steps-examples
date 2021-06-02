@@ -1,5 +1,4 @@
 resources:
-  # Build info of first build to bundle
   - name: myBuildInfo
     type: BuildInfo
     configuration:
