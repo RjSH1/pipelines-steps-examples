@@ -8,7 +8,7 @@ resources:
       buildNumber: 1
 
   # Build info of second build to bundle
-  - name: appl_promoted_build_info
+  - name: appl_promoted_build_info1
     type: BuildInfo
     configuration:
       sourceArtifactory: demoArt
