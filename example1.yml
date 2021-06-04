@@ -1,23 +1,20 @@
 resources:
-  - name: app_test_results
-    type: PropertyBag
+  - name: jenkinsBuildInfo
+    type: BuildInfo
     configuration:
-      passing: 0
-      failing: 0
-      
+      sourceArtifactory: myArtifactory		# Replace with your Artifactory integration name
+      buildName: sample-build				# Replace with your build name
+      buildNumber: 1
+      externalCI: MyJenkins					# Replace with your Jenkins integration name
+
 pipelines:
-  - name: jenkins_example 
+  - name: pipelines_trigger
     steps:
-    - name: test_app
-      type: Jenkins
-      configuration:
-        jenkinsJobName: basic-api
-        inputResources:
-          - name: app_docker
-        buildParameters:
-          imageName: ${res_app_docker_imageName}
-          imageTag: ${res_app_docker_imageTag}
-        integrations:
-          - name: myJenkins
-        outputResources:
-          - name: app_test_results
+      - name: start_from_jenkins
+        type: Bash
+        configuration:
+          inputResources:
+            - name: jenkinsBuildInfo
+        execution:
+          onExecute:
+            - echo 'Jenkins job triggered Pipelines' 
