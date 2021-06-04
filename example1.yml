@@ -1,0 +1,23 @@
+resources:
+  - name: app_test_results
+    type: PropertyBag
+    configuration:
+      passing: 0
+      failing: 0
+      
+pipelines:
+  - name: 
+    steps:
+    - name: test_app
+      type: Jenkins
+      configuration:
+        jenkinsJobName: basic-api
+        inputResources:
+          - name: app_docker
+        buildParameters:
+          imageName: ${res_app_docker_imageName}
+          imageTag: ${res_app_docker_imageTag}
+        integrations:
+          - name: myJenkins
+        outputResources:
+          - name: app_test_results
