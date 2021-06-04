@@ -1,1 +1,23 @@
-test
+Bash ///
+CreateReleaseBundle ///
+DistributeReleaseBundle ///
+DockerBuild ///
+DockerPush ///
+GoBuild ///
+GoPublishBinary ///
+GoPublishModule ///
+GradleBuild
+HelmDeploy
+HelmPublish
+Jenkins ///
+Matrix
+MvnBuild ///
+NpmBuild ///
+NpmPublish |||
+PostMatrix
+PowerShell
+PreMatrix
+PromoteBuild ///
+PublishBuildInfo :https://github.com/jfrog/jfrog-pipelines-steps-examples/blob/main/DockerPush/pipelines.yml
+SignReleaseBundle ///
+XrayScan ///
