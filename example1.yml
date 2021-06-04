@@ -5,9 +5,9 @@ resources:
       passing: 0
       failing: 0
       
-pipelines: jenkins_example
-  - name: 
-    steps: step_jenkins
+pipelines:
+  - name: jenkins_example 
+    steps:
     - name: test_app
       type: Jenkins
       configuration:
